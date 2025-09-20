@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>👗Tienda de Ropa</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  </head>
+  <body>
+    <header class="container header">
+      <h1>👗 Tienda de Ropa</h1>
+      <p class="subtitle">
+        DOM + Eventos + Fetch JSON + LocalStorage + SweetAlert2
+      </p>
+    </header>
+
+    <main class="container grid">
+      <section class="catalog">
+        <h2>Catálogo</h2>
+
+        <div class="toolbar">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Buscar prenda o categoría..."
+          />
+          <select id="sortSelect" aria-label="Ordenar">
+            <option value="alphaAsc">A → Z</option>
+            <option value="alphaDesc">Z → A</option>
+            <option value="priceAsc">Precio ↑</option>
+            <option value="priceDesc">Precio ↓</option>
+          </select>
+          <select id="categorySelect" aria-label="Categoría">
+            <option value="all">Todas</option>
+          </select>
+        </div>
+
+        <ul id="productList" class="list"></ul>
+
+        <details class="new-product">
+          <summary>➕ Agregar prenda</summary>
+          <form id="newProductForm" class="form">
+            <div class="form-row">
+              <label for="name">Nombre</label>
+              <input
+                id="name"
+                name="name"
+                required
+                minlength="2"
+                maxlength="40"
+                placeholder="Ej: Remera Oversize"
+              />
+            </div>
+            <div class="form-row">
+              <label for="price">Precio (UYU)</label>
+              <input
+                id="price"
+                name="price"
+                type="number"
+                step="0.01"
+                min="1"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="stock">Stock</label>
+              <input
+                id="stock"
+                name="stock"
+                type="number"
+                min="0"
+                value="10"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="category">Categoría</label>
+              <input
+                id="category"
+                name="category"
+                placeholder="Remeras, Pantalones, Camperas, ..."
+              />
+            </div>
+            <button type="submit" class="btn primary">Guardar</button>
+            <p id="formMsg" class="msg" role="status" aria-live="polite"></p>
+          </form>
+        </details>
+      </section>
+
+      <aside class="cart">
+        <h2>Carrito</h2>
+        <ul id="cartList" class="list"></ul>
+
+        <div class="coupon">
+          <input id="couponInput" placeholder="Cupón (p. ej. NUEVO10)" />
+          <button id="applyCouponBtn" class="btn">Aplicar cupón</button>
+          <p id="couponMsg" class="msg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="cart-footer">
+          <div class="totals">
+            <span>Items: <strong id="cartItems">0</strong></span>
+            <span>Subtotal: <strong id="cartSubtotal">UYU 0</strong></span>
+            <span>Descuento: <strong id="cartDiscount">– UYU 0</strong></span>
+            <span>Total: <strong id="cartTotal">UYU 0</strong></span>
+          </div>
+          <div class="cart-actions">
+            <button id="clearCartBtn" class="btn">Vaciar</button>
+            <button id="checkoutBtn" class="btn primary">
+              Finalizar compra
+            </button>
+          </div>
+          <p id="cartMsg" class="msg" role="status" aria-live="polite"></p>
+        </div>
+      </aside>
+    </main>
+
+    <section class="container checkout">
+      <h2>Checkout</h2>
+      <form id="checkoutForm" class="form">
+        <div class="form-row">
+          <label for="cName">Nombre</label>
+          <input id="cName" name="name" required />
+        </div>
+        <div class="form-row">
+          <label for="cEmail">Email</label>
+          <input id="cEmail" name="email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="cAddress">Dirección</label>
+          <input id="cAddress" name="address" required />
+        </div>
+        <div class="form-row">
+          <label for="cPayment">Medio de pago</label>
+          <select id="cPayment" name="payment" required>
+            <option value="debito">Débito</option>
+            <option value="credito">Crédito</option>
+            <option value="transferencia">Transferencia</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="cInstallments">Cuotas</label>
+          <select id="cInstallments" name="installments">
+            <option value="1">1 cuota</option>
+            <option value="2">2 cuotas</option>
+            <option value="3">3 cuotas</option>
+            <option value="6">6 cuotas</option>
+            <option value="12">12 cuotas</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label
+            ><input id="saveProfile" type="checkbox" checked /> Guardar mis
+            datos</label
+          >
+        </div>
+        <button class="btn primary" type="submit">Pagar</button>
+        <p id="checkoutMsg" class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="container footer">
+      <small
+        >Simulador de Ecommerce (Ropa). HTML generado desde JS, fetch a JSON,
+        sin alert/prompt.</small
+      >
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

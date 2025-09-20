@@ -1,0 +1,30 @@
+[
+  {
+    "id": "c1",
+    "name": "Camisa",
+    "price": 1500,
+    "stock": 20,
+    "category": "Ropa"
+  },
+  {
+    "id": "p1",
+    "name": "Pantalón",
+    "price": 2300,
+    "stock": 20,
+    "category": "Ropa"
+  },
+  {
+    "id": "ch1",
+    "name": "Championes",
+    "price": 4500,
+    "stock": 15,
+    "category": "Calzado"
+  },
+  {
+    "id": "g1",
+    "name": "Gorro",
+    "price": 800,
+    "stock": 25,
+    "category": "Accesorio"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "code": "NUEVO10",
+    "type": "percent",
+    "value": 10,
+    "min": 0
+  },
+  {
+    "code": "MODA300",
+    "type": "fixed",
+    "value": 300,
+    "min": 3000
+  }
+]
